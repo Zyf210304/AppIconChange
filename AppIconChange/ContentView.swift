@@ -24,11 +24,11 @@ struct ContentView: View {
                   
                     }
             
-//            [[UIApplication sharedApplication] setAlternateIconName:@"TestIcon" completionHandler:^(NSError * _Nullable error) {
-//                if (error != nil) {
-//                    NSLog(@"set alternative icon error:%@", error.localizedDescription);
-//                }
-//            }];
+            [[UIApplication sharedApplication] setAlternateIconName:@"TestIcon" completionHandler:^(NSError * _Nullable error) {
+                if (error != nil) {
+                    NSLog(@"set alternative icon error:%@", error.localizedDescription);
+                }
+            }];
             
             Text("ace Icon")
                 .padding()
