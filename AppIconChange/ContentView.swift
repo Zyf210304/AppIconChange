@@ -8,9 +8,55 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isPresented = false
+    @State var description = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack {
+            
+            Text("luffy Icon")
+                .padding()
+                .onTapGesture {
+                    
+                    UIApplication.shared.setAlternateIconName("luffy")
+                  
+                    }
+            
+//            [[UIApplication sharedApplication] setAlternateIconName:@"TestIcon" completionHandler:^(NSError * _Nullable error) {
+//                if (error != nil) {
+//                    NSLog(@"set alternative icon error:%@", error.localizedDescription);
+//                }
+//            }];
+            
+            Text("ace Icon")
+                .padding()
+                .onTapGesture {
+                    
+                    UIApplication.shared.setAlternateIconName("ace")
+                }
+            
+            Text("onami")
+                .padding()
+                .onTapGesture {
+                    
+                    UIApplication.shared.setAlternateIconName("onami") { error in
+              
+                        description = error?.localizedDescription ?? "找不到对应Icon"
+                        isPresented = true
+                        
+                    }
+                
+                }
+                .alert(isPresented: $isPresented) {
+                    
+                    let  alert = Alert(title: Text("修改失败"), message: Text(description), dismissButton: .default(Text("确认")))
+                    
+                    return alert
+                }
+        }
+        
     }
 }
 
