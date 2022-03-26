@@ -21,10 +21,11 @@ struct ContentView: View {
                 .onTapGesture {
                 
                     UIApplication.shared.setAlternateIconName("AppIcon") { error in
-                        
+
                         NSLog(error?.localizedDescription ?? "123")
                     }
                         
+                   
                 }
             
             Text("luffy Icon")
@@ -33,8 +34,8 @@ struct ContentView: View {
                     
                     UIApplication.shared.setAlternateIconName("luffy")
                   
-                    }
-            }
+                    
+                }
             
             Text("ace Icon")
                 .padding()
