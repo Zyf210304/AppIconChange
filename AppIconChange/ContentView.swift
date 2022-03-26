@@ -16,6 +16,17 @@ struct ContentView: View {
         
         VStack {
             
+            Text("default")
+                .padding()
+                .onTapGesture {
+                
+                    UIApplication.shared.setAlternateIconName("AppIcon") { error in
+                        
+                        NSLog(error?.localizedDescription ?? "123")
+                    }
+                        
+                }
+            
             Text("luffy Icon")
                 .padding()
                 .onTapGesture {
@@ -23,12 +34,7 @@ struct ContentView: View {
                     UIApplication.shared.setAlternateIconName("luffy")
                   
                     }
-            
-            [[UIApplication sharedApplication] setAlternateIconName:@"TestIcon" completionHandler:^(NSError * _Nullable error) {
-                if (error != nil) {
-                    NSLog(@"set alternative icon error:%@", error.localizedDescription);
-                }
-            }];
+            }
             
             Text("ace Icon")
                 .padding()
